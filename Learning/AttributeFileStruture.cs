@@ -7,23 +7,23 @@ using System.Threading.Tasks;
 namespace Learning
 {
     [AttributeUsage(AttributeTargets.All,AllowMultiple = true)]
-    public class DebugInfo:Attribute
+    public class AttributeFileStruture:Attribute
     {
         /// <summary>
-        /// Bug number
+        /// Start position
         /// </summary>
-        public int BUGNO { get; set; }
+        public int STARTPOS { get; set; }
         /// <summary>
-        /// Name of developer
+        /// End position
         /// </summary>
-        public string DEVELOPER { get; set; }
+        public int ENDPOS { get; set; }
         /// <summary>
-        /// Last review
+        /// Is it character
         /// </summary>
-        public string LASTREVIEW { get; set; }
+        public bool ISCHARACTER { get; set; }
         /// <summary>
-        /// Message
+        /// Is it numberic
         /// </summary>
-        public string MESSAGE { get; set; }
+        public bool ISNUMBERIC { get; set; }
     }
 }

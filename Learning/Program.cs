@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Reflection;
 
 namespace Learning
@@ -11,53 +8,56 @@ namespace Learning
     {
         static void Main(string[] args)
         {
-            Rectangle r = new Rectangle
+            FileStruture r = new FileStruture
             {
                 WIDTH = 10,
-                LENGTH = 20
+                LENGTH = 20,
+                AREA = 200
             };
             r.Display();
 
-            Type t = typeof(Rectangle);
-            object[] attributes = t.GetCustomAttributes(true);
-            foreach (object obj in attributes)
+            Type t = typeof(FileStruture);
+            PropertyInfo[] propertyInfos = t.GetProperties();
+            foreach (PropertyInfo obj in propertyInfos)
             {
-               // DebugInfo info = obj as DebugInfo;
-                if (obj is DebugInfo)
+                AttributeFileStruture item = obj.GetCustomAttributes(false).First() as AttributeFileStruture;
+                if (item != null)
                 {
-                    DebugInfo info = (DebugInfo)obj;
-                    Console.WriteLine("Bug No: {0}",info.BUGNO);
-                    Console.WriteLine("Developer: {0}", info.DEVELOPER);
-                    Console.WriteLine("Last view: {0}", info.LASTREVIEW);
-                    Console.WriteLine("Message: {0}", info.MESSAGE);
+                    Console.WriteLine("Start position is: {0}", item.STARTPOS);
+                    Console.WriteLine("End position is: {0}", item.ENDPOS);
+                    Console.WriteLine("Is it character: {0}", item.ISCHARACTER);
+                    Console.WriteLine("Is it numberic: {0}", item.ISNUMBERIC);
                 }
             }
 
-            System.Reflection.PropertyInfo[] propertyInfos = t.GetProperties();
-            foreach(PropertyInfo obj in propertyInfos)
-            {
-                DebugInfo item = obj.GetCustomAttributes(false).First() as DebugInfo;
-                if (item != null)
-                {
-                    Console.WriteLine("Bug No: {0}", item.BUGNO);
-                    Console.WriteLine("Developer: {0}", item.DEVELOPER);
-                    Console.WriteLine("Last view: {0}", item.LASTREVIEW);
-                    Console.WriteLine("Message: {0}", item.MESSAGE);
-                }
-            }
 
-            System.Reflection.MethodInfo[] methodInfos = t.GetMethods();
-            foreach (MethodInfo obj in methodInfos)
-            {
-                DebugInfo item = obj.GetCustomAttributes(false).First() as DebugInfo;
-                if (item != null)
-                {
-                    Console.WriteLine("Bug No: {0}", item.BUGNO);
-                    Console.WriteLine("Developer: {0}", item.DEVELOPER);
-                    Console.WriteLine("Last view: {0}", item.LASTREVIEW);
-                    Console.WriteLine("Message: {0}", item.MESSAGE);
-                }
-            }
+            //object[] attributes = t.GetCustomAttributes(true);
+            //foreach (object obj in attributes)
+            //{
+            //   // DebugInfo info = obj as DebugInfo;
+            //    if (obj is AttributeFileStruture)
+            //    {
+            //        AttributeFileStruture info = (AttributeFileStruture)obj;
+            //        Console.WriteLine("Bug No: {0}",info.BUGNO);
+            //        Console.WriteLine("Developer: {0}", info.DEVELOPER);
+            //        Console.WriteLine("Last view: {0}", info.LASTREVIEW);
+            //        Console.WriteLine("Message: {0}", info.MESSAGE);
+            //    }
+            //}
+
+
+            //System.Reflection.MethodInfo[] methodInfos = t.GetMethods();
+            //foreach (MethodInfo obj in methodInfos)
+            //{
+            //    AttributeFileStruture item = obj.GetCustomAttributes(false).First() as AttributeFileStruture;
+            //    if (item != null)
+            //    {
+            //        Console.WriteLine("Bug No: {0}", item.BUGNO);
+            //        Console.WriteLine("Developer: {0}", item.DEVELOPER);
+            //        Console.WriteLine("Last view: {0}", item.LASTREVIEW);
+            //        Console.WriteLine("Message: {0}", item.MESSAGE);
+            //    }
+            //}
             Console.ReadKey();
         }
     }
