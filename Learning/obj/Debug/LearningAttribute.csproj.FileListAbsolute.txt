@@ -1,0 +1,6 @@
+C:\Users\LSH946\source\repos\Learning\Learning\bin\Debug\Learning.exe.config
+C:\Users\LSH946\source\repos\Learning\Learning\bin\Debug\Learning.exe
+C:\Users\LSH946\source\repos\Learning\Learning\bin\Debug\Learning.pdb
+C:\Users\LSH946\source\repos\Learning\Learning\obj\Debug\LearningAttribute.csproj.CoreCompileInputs.cache
+C:\Users\LSH946\source\repos\Learning\Learning\obj\Debug\Learning.exe
+C:\Users\LSH946\source\repos\Learning\Learning\obj\Debug\Learning.pdb
